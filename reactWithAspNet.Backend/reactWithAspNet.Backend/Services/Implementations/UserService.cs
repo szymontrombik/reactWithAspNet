@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using reactWithAspNet.Backend.Models;
 
-namespace reactWithAspNet.Backend.Services
+namespace reactWithAspNet.Backend.Services.Implementations
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private static List<User> users = new List<User>();
         private static int count = 1;

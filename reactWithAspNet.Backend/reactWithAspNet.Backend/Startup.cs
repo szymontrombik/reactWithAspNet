@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using reactWithAspNet.Backend.Services;
+using reactWithAspNet.Backend.Services.Implementations;
 
 namespace reactWithAspNet.Backend
 {
@@ -27,7 +28,7 @@ namespace reactWithAspNet.Backend
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddSingleton<UserService>();
+            services.AddSingleton<IUserService, UserService>();
 
             services.AddCors(c => c.AddPolicy("ReactPolicy", builder =>
             {

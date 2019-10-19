@@ -12,9 +12,9 @@ namespace reactWithAspNet.Backend.Controllers
     [EnableCors("ReactPolicy")]
     public class UsersController : Controller
     {
-        private readonly UserService userService;
+        private readonly IUserService userService;
 
-        public UsersController(UserService userService)
+        public UsersController(IUserService userService)
         {
             this.userService = userService;
         }
