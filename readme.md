@@ -1,0 +1,2 @@
+# reactWithAspNet sample app
+This is a Single Page Application based on [Creating ASP.NET Apps with React](https://www.red-gate.com/simple-talk/dotnet/net-development/creating-asp-net-apps-with-react/?utm_campaign=dotNET%20Weekly&utm_medium=email&utm_source=week-36_year-2019).
