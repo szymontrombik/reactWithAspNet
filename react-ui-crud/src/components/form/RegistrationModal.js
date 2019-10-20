@@ -1,4 +1,4 @@
-import React, { Component, Fragmet } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import RegistrationForm from './RegistrationForm';
 
@@ -30,7 +30,7 @@ class RegistrationModal extends Component {
                 <ModalBody>
                     <RegistrationForm
                         addUserToState={this.props.addUserToState}
-                        updateUserToState = {this.props.updateUserToState}
+                        updateUserIntoState = {this.props.updateUserIntoState}
                         toggle={this.toggle}
                         user={this.props.user} />
                 </ModalBody>

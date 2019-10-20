@@ -38,7 +38,7 @@ class DataTable extends Component {
                     <tr>
                         <td colSpan="6" align="center"><b>No users yet!</b></td>
                     </tr>
-                    : items.map(item => {
+                    : items.map(item => (
                         <tr key={item.id}>
                             <th scope="row">{item.id}</th>
                             <td>{item.name}</td>
@@ -56,7 +56,7 @@ class DataTable extends Component {
                                 </div>
                             </td>
                         </tr>
-                    })}
+                    ))}
             </tbody>
         </Table>;
     }

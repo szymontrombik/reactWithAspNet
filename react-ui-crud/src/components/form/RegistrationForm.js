@@ -27,11 +27,11 @@ class RegistrationForm extends Component {
         fetch(`${USERS_API_URL}`, {
             method: 'post',
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 name: this.state.name,
-                email : this.state.email,
+                email: this.state.email,
                 document: this.state.document,
                 phone: this.state.phone
             })
@@ -46,43 +46,42 @@ class RegistrationForm extends Component {
 
     submitEdit = e => {
         e.preventDefault();
-        fetch(`${USERS_API_URL}`, {
+        fetch(`${USERS_API_URL}/${this.state.id}`, {
             method: 'put',
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 name: this.state.name,
-                email : this.state.email,
+                email: this.state.email,
                 document: this.state.document,
                 phone: this.state.phone
             })
         })
-            .then(res => res.json())
-            .then(user => {
+            .then(() => {
                 this.props.toggle();
                 this.props.updateUserIntoState(this.state.id);
             })
             .catch(err => console.log(err));
     }
 
-    render(){
-        return <Form onSubmit={this.state.user ? this.submitEdit : this.submitNew}>
+    render() {
+        return <Form onSubmit={this.props.user ? this.submitEdit : this.submitNew}>
             <FormGroup>
                 <Label for="name">Name:</Label>
-                <input type="text" name="name" onChange={this.onChange} value={this.state.name === '' ? '' : this.state.name}/>
+                <input type="text" name="name" onChange={this.onChange} value={this.state.name === '' ? '' : this.state.name} />
             </FormGroup>
             <FormGroup>
                 <Label for="email">Email:</Label>
-                <input type="email" name="email" onChange={this.onChange} value={this.state.email === '' ? '' : this.state.email}/>
+                <input type="email" name="email" onChange={this.onChange} value={this.state.email === '' ? '' : this.state.email} />
             </FormGroup>
             <FormGroup>
                 <Label for="document">Document:</Label>
-                <input type="text" name="document" onChange={this.onChange} value={this.state.document === '' ? '' : this.state.document}/>
+                <input type="text" name="document" onChange={this.onChange} value={this.state.document === '' ? '' : this.state.document} />
             </FormGroup>
             <FormGroup>
                 <Label for="phone">Phone:</Label>
-                <input type="text" name="phone" onChange={this.onChange} value={this.state.phone === '' ? '' : this.state.phone}/>
+                <input type="text" name="phone" onChange={this.onChange} value={this.state.phone === '' ? '' : this.state.phone} />
             </FormGroup>
             <Button>Send</Button>
         </Form>;
